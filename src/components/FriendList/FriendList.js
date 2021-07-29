@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import Friend from './FriendListItem';
+import s from './FriendList.module.css';
 
 function FriendList({ friends }) {
   return (
-    <ul>
+    <ul className={s.friendList}>
       {friends.map(friend => (
         <Friend
+          //   {...friend} лучше не использовать раздаёт не нужные пропсы, код не читается
           key={friend.id}
           avatar={friend.avatar}
           name={friend.name}
