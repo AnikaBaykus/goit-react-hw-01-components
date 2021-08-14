@@ -39,11 +39,11 @@ function Profile(props) {
 }
 
 Profile.propTypes = {
-  avatar: PropTypes.string,
-  name: PropTypes.string,
-  tag: PropTypes.string,
-  location: PropTypes.string,
-  stats: PropTypes.object,
+  avatar: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  stats: PropTypes.objectOf(PropTypes.number.isRequired).isRequired,
 };
 
 export default Profile;
