@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import s from './Statistics.module.css';
-import generateColor from './generateColor';
+import generateColor from '../../helpers/generateColor';
 
 function Statistics(props) {
   const { title, stats } = props;
   const isTitle = title;
   return (
     <section className={s.statistics}>
-      {isTitle && <h2 className={s.title}>{title}</h2>}
+      {isTitle !== '' && <h2 className={s.title}>{title}</h2>}
       <ul className={s.statList}>
         {stats.map(stat => (
           <li
@@ -25,8 +25,13 @@ function Statistics(props) {
 }
 
 Statistics.propTypes = {
-  title: PropTypes.string,
-  stats: PropTypes.array,
+  title: PropTypes.string.isRequired,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }),
+  ),
 };
 
 export default Statistics;

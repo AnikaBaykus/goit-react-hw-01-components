@@ -4,7 +4,6 @@ import s from './FriendListItem.module.css';
 function Friend(props) {
   const { avatar = defaultProfile, name, isOnline } = props;
   const isActive = isOnline;
-  console.log(isActive);
   return (
     <li className={s.item}>
       <span
